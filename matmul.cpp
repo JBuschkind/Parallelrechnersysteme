@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
@@ -29,10 +30,20 @@ void dump (double *x, int N, int M)
   cout << "----------------------------------------" << endl;
 }
 
+
 //--------------------------------------------------------
 void mmult (double *A, double *B, double *C, int N, int K, int M)
-{
-    // TO-DO
+{ 
+    #pragma omp parallel for collapse(2)
+    for(int x = 0; x < N; x++){
+      for(int y = 0; y < M; y++){
+        double temp = 0;      
+        for(int z = 0; z < K; z++){
+          temp += A[z*N + x] * B[y*M + z];
+        }
+        C[y*N + x] = temp;
+      }
+    }
 }
 
 //--------------------------------------------------------
