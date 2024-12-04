@@ -24,12 +24,12 @@ int compare (int *A, int size){
 	if(size == 1){
 		return A[0];
 	}
-	int *Out = new int[(int)ceil(size/2)];
+	int Out = new int[(int)ceil(size/2)];
 	if(size%2 == 1){
-		*Out[(int)ceil(size/2)-1] = *A[size-1];
+		Out[(int)ceil(size/2)-1] = *A[size-1];
 	}
 	for( i = 0; i < floor(size/2); i++){
-		*Out[i*2] = A[i*2] > A[(i*2)+1] ? A[i*2] : A[(i*2)+1];
+		Out[i*2] = A[i*2] > A[(i*2)+1] ? A[i*2] : A[(i*2)+1];
 	}
 	
 	return compare(*Out,ceil(size/2));
@@ -38,7 +38,7 @@ int compare (int *A, int size){
 int main (int argc, char *argv[]){
 
   int size = argv[1];
-  int *A = new int[size];
+  int A = new int[size];
   cout << "Array Elements: ";
     for (int i = 0; i < size; i++)
         cout << *A[i] << " ";
