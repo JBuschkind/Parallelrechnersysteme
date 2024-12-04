@@ -18,7 +18,7 @@ void numberGen (int N, int max, int *store)
 }
 
 //--------------------------------------------------------
-int compare (int *A, size){
+int compare (int *A, int size){
 
 	if(size == 1){
 		return *A[0];
