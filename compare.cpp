@@ -25,10 +25,10 @@ int compare (int *A, int size){
 		return A[0];
 	}
 	int *Out = new int[(int)ceil(size/2)];
-	if(length%2 == 1){
+	if(size%2 == 1){
 		*Out[(int)ceil(size/2)-1] = *A[size-1];
 	}
-	for( i = 0; i < floor(length/2); i++){
+	for( i = 0; i < floor(size/2); i++){
 		*Out[i*2] = A[i*2] > A[(i*2)+1] ? A[i*2] : A[(i*2)+1];
 	}
 	
