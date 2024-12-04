@@ -4,6 +4,11 @@
 #include <setjmp.h>
 #include <jpeglib.h>
 #include <jerror.h>
+#include <string.h>
+#include <iostream>
+#include <omp.h>
+
+using namespace std;
 
 // Basic structure to hold image data
 typedef struct {
@@ -123,7 +128,7 @@ void blur_image(Image* image, int blur_radius) {
     unsigned char* temp_pixels = (unsigned char*)malloc(image->width * image->height * image->channels);
     if (blur_radius < 1) blur_radius = 1;
 
-
+    #pragma omp parallel for collapse(3)
     for (int y = 0; y < image->height; y++) {
         for (int x = 0; x < image->width; x++) {
             for (int c = 0; c < image->channels; c++) {
@@ -134,7 +139,7 @@ void blur_image(Image* image, int blur_radius) {
                     for (int dx = -blur_radius; dx <= blur_radius; dx++) {
                         int nx = x + dx;
                         int ny = y + dy;
-              
+
                         if (nx >= 0 && nx < image->width && ny >= 0 && ny < image->height) {
                             int neighbor_index = (ny * image->width + nx) * image->channels + c;
                             sum += image->pixels[neighbor_index];
@@ -156,14 +161,20 @@ void blur_image(Image* image, int blur_radius) {
 // Example usage
 int main() {
     // Read an image
-    Image* image = read_jpeg_file("input.jpg");
+    Image* image = read_jpeg_file("inputx16.jpg");
     if (!image) {
         fprintf(stderr, "Error reading image\n");
         return 1;
     }
 
-    // Adjust brightness (increase by 30)
-    blur_image(image, 1);
+;
+
+    double t = omp_get_wtime ();
+  
+    // Blursed (increase by 30)
+    blur_image(image, 4);
+
+    cout << omp_get_wtime () - t << endl;
 
     // Save the modified image
     if (!write_jpeg_file("output.jpg", image, 90)) {
