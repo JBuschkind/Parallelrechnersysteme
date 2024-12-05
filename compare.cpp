@@ -3,6 +3,9 @@
 #include <iostream>
 #include <omp.h>
 #include <cmath>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -25,15 +28,15 @@ int main (int argc, char *argv[]){
   int *A = new int[size];
   cout << "Array Elements: ";
     for (int i = 0; i < size; i++)
-        cout << *A[i] << " ";
+        cout << A[i] << " ";
     cout << endl;
   numberGen(size, 100, A);
   
-  int global_max = INT_MIN;
+  int global_max = 0;
   
   #pragma omp parallel
     {
-        int local_max = INT_MIN;
+        int local_max = 0;
 
         #pragma omp for
         for (int i = 0; i < N; ++i) {
