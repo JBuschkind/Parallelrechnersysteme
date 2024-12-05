@@ -35,7 +35,7 @@ int main (int argc, char *argv[]){
   
   
   int global_max = 0;
-  
+  double t = omp_get_wtime ();
   #pragma omp parallel
     {
         int local_max = 0;
@@ -55,5 +55,6 @@ int main (int argc, char *argv[]){
         }
     }
 	cout << "Der maximale Wert im Array ist: " << global_max << endl;
+	cout << omp_get_wtime () - t << endl;
   return 0;
 }
