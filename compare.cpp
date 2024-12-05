@@ -16,6 +16,7 @@ using namespace std;
 //------------------------------------
 void numberGen (int N, int max, int *store)
 {
+  std::srand(std::time(nullptr));
   int i;
   for (i = 0; i < N; i++)
     store[i] = rand () % max;
