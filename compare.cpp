@@ -39,9 +39,9 @@ int main (int argc, char *argv[]){
         int local_max = 0;
 
         #pragma omp for
-        for (int i = 0; i < N; ++i) {
-            if (arr[i] > local_max) {
-                local_max = arr[i];
+        for (int i = 0; i < size; ++i) {
+            if (A[i] > local_max) {
+                local_max = A[i];
             }
         }
 
