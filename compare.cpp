@@ -21,8 +21,8 @@ void numberGen (int N, int max, int *store)
 
 int main (int argc, char *argv[]){
 
-  int size = argv[1];
-  int A = new int[size];
+  int size = atoi(argv[1]);
+  int *A = new int[size];
   cout << "Array Elements: ";
     for (int i = 0; i < size; i++)
         cout << *A[i] << " ";
