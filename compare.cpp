@@ -26,11 +26,12 @@ int main (int argc, char *argv[]){
 
   int size = atoi(argv[1]);
   int *A = new int[size];
+  numberGen(size, 100, A);
   cout << "Array Elements: ";
     for (int i = 0; i < size; i++)
         cout << A[i] << " ";
     cout << endl;
-  numberGen(size, 100, A);
+  
   
   int global_max = 0;
   
