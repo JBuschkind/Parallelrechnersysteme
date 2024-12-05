@@ -36,18 +36,18 @@ int main (int argc, char *argv[]){
   
   int global_max = 0;
   double t = omp_get_wtime ();
-  //#pragma omp parallel
+  #pragma omp parallel
     {
         int local_max = 0;
 
-        //#pragma omp for
+        #pragma omp for
         for (int i = 0; i < size; ++i) {
             if (A[i] > local_max) {
                 local_max = A[i];
             }
         }
 
-        //#pragma omp critical
+        #pragma omp critical
         {
             if (local_max > global_max) {
                 global_max = local_max;
