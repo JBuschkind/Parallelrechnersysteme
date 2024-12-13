@@ -1,0 +1,5 @@
+Da wir den Code nicht selber geschrieben haben, gibt es hierzu keine Notizen.
+
+Der Code wurde nicht weiter optimiert.
+
+Die Ausgaben entsprachen unseren erwartungen.
