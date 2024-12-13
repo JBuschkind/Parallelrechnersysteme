@@ -1,0 +1,22 @@
+We oriented our solution on the code snippets given in the slides again. 
+To publish the message to all participants, we iterated through a for loop.
+We thought about using a String Array for storing the single responses.
+
+And decided to do so after a quick discussion, because the output would be 
+more readable and therefore more easily to debug if the programm were larger.
+
+Even if it doesn't make much difference in our exercise case, we wanted to see how we would handle a task with a larger scale.
+
+Again, the Code itself is explained with comments inside the codefile. 
+As this is still a pretty simple task for understanding the concepts of openMPI, 
+there are no complex concepts to understand or describe.
+
+Output:
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task3$ ./build.sh
+Recieved Message in (two Way) Time: 0.000058
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task3$ ./build.sh
+Recieved Message in (two Way) Time: 0.000179
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task3$ ./build.sh
+Recieved Message in (two Way) Time: 0.000059
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task3$ ./build.sh
+Recieved Message in (two Way) Time: 0.000574
