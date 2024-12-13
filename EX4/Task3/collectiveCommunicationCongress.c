@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
         MPI_Status status;
 
         //Recieving Message
-        for(i = 1; i < sizeM; i++ ){
+        for(i = 1; i < size; i++ ){
             MPI_Recv(recv[i-1], 12, MPI_CHAR, i, 2, MPI_COMM_WORLD, &status);
         }
 
