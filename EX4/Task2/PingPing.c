@@ -15,9 +15,9 @@ int main(int argc, char** argv) {
         int len = strlen(mess)+1;
         int time1 = MPI_Wtime();
         MPI_Send(mess, len, MPI_CHAR, 1, 2, MPI_COMM_WORLD);
-        char recv[MAXLEN];
+        char recv[12];
         MPI_Status status;
-        MPI_Recv(recv, MAXLEN, MPI_CHAR, 1, 2, MPI_COMM_WORLD, &status);
+        MPI_Recv(recv, 12, MPI_CHAR, 1, 2, MPI_COMM_WORLD, &status);
         int time2 = MPI_Wtime();
         int diff = time2 - time1;
         printf("Recieved Message in (one Way) Time: %i", diff);
