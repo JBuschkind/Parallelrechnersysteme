@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
         MPI_Recv(recv, 12, MPI_CHAR, 1, 2, MPI_COMM_WORLD, &status);
         float time2 = MPI_Wtime();
         float diff = time2 - time1;
-        printf("Recieved Message in (one Way) Time: %f \n", diff);
+        printf("Recieved Message in (two Way) Time: %f \n", diff);
     } else {
         char recv[12];
         MPI_Status status;
