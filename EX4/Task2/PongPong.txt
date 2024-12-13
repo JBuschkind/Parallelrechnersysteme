@@ -3,3 +3,13 @@ The Code itself is explained with comments inside the codefile.
 
 As this is still a pretty simple task for understanding the concepts of openMPI, 
 there are no complex concepts to understand or describe.
+
+Output:
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task2$ ./build.sh
+Recieved Message in (two Way) Time: 0.000050
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task2$ ./build.sh
+Recieved Message in (two Way) Time: 0.000034
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task2$ ./build.sh
+Recieved Message in (two Way) Time: 0.000079
+dev@v2202411239943293555:~/Parallelrechnersysteme/EX4/Task2$ ./build.sh
+Recieved Message in (two Way) Time: 0.000023
