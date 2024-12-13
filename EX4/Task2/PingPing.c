@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
     int world_size;
     MPI_Comm_size(MPI_COMM_WORLD, &world_size); // Anzahl der Prozesse
 
-    if (rank == 0) [
+    if (rank == 0) {
         char mess[] = "Hello World";
         int len = strlen(mess)+1;
         int time1 = MPI_Wtime();
@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
         int time2 = MPI_Wtime();
         int diff = time2 - time1;
         printf("Recieved Message in (one Way) Time: %i", diff);
-    ] else {
+    } else {
         char recv[MAXLEN];
         MPI_Status status;
         MPI_Recv(recv, MAXLEN, MPI_CHAR, 0, MESSTAG, MPI_COMM_WORLD, &status);
