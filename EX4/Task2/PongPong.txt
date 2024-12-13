@@ -1,0 +1,5 @@
+We oriented our solution on the code snippets given in the slides. 
+The Code itself is explained with comments inside the codefile. 
+
+As this is still a pretty simple task for understanding the concepts of openMPI, 
+there are no complex concepts to understand or describe.
