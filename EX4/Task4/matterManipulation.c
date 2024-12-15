@@ -4,8 +4,8 @@
 #include <string.h>
 #include <time.h>
 
-#define N 10  // Matrixgröße NxM
-#define M 10 // Matrixgröße NxM
+#define N 20  // Matrixgröße NxM
+#define M 20 // Matrixgröße NxM
 
 //------------------------------------
 void initialize_matrices (int n, int m, int max, int *store)
@@ -65,8 +65,8 @@ int main(int argc, char** argv) {
     if (rank == 0) {
         srand (time (0));
         // Initialisiere Matrizen im Hauptprozess
-        initialize_matrices(N, M, 10, A[0]);
-        initialize_matrices(M, N, 10, B[0]);
+        initialize_matrices(N, M, 100, A[0]);
+        initialize_matrices(M, N, 100, B[0]);
     }
 
     MPI_Bcast(B, M * N, MPI_INT, 0, MPI_COMM_WORLD);
