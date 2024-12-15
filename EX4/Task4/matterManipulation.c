@@ -20,7 +20,7 @@ void initialize_matrices (int n, int m, int max, int *store)
 
 // Hauptfunktion zur Matrixmultiplikation
 void matrix_multiply(int A[N][M], int B[M][N], int C[N][N], int start_row, int end_row) {
-    #pragma omp parallel for collapse(2)
+    //#pragma omp parallel for collapse(2)
     for (int i = start_row; i < end_row; i++) {
         for (int j = 0; j < N; j++) {
             for (int k = 0; k < M; k++) {
@@ -68,6 +68,8 @@ int main(int argc, char** argv) {
 
     int start_row = rank * rows_per_process;
     int end_row = start_row + rows_per_process;
+
+
 
     matrix_multiply(A, B, C, start_row, end_row);
 
