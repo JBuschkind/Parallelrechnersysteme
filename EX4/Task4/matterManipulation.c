@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
     int end_row = start_row + rows_per_process;
 
 
-
+    printf(" %i %i %i", start_row, end_row, rows_per_process);
     matrix_multiply(A, B, C, start_row, end_row);
 
     MPI_Gather(C[start_row], rows_per_process * M, MPI_INT, C, rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
