@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
     int elems_per_process = N / size;  
     int start_elem = rank * elems_per_process;
     int end_elem = start_elem + elems_per_process;
-
+    /*
     if(rank == 0){
         MPI_Status status;
         //Sending the Message
@@ -62,7 +62,7 @@ int main(int argc, char** argv) {
             MPI_Send(I[rank * elems_per_process], elems_per_process, MPI_INT, i, 2, MPI_COMM_WORLD);
         }
 
-        search(I, O, target, start_elem, end_elem);
+        
         
         //Recieving Message
         for(int i = 1; i < size; i++ ){
@@ -76,6 +76,13 @@ int main(int argc, char** argv) {
 
         MPI_Send(O[rank * elems_per_process], elems_per_process, MPI_INT, 0, 2, MPI_COMM_WORLD);
     }
+    */
+
+    MPI_Scatter(I[rank * elems_per_process], elems_per_process, MPI_INT, I[rank * elems_per_process], elems_per_process, MPI_INT, 0, MPI_COMM_WORLD);
+
+    search(I, O, target, start_elem, end_elem);
+    
+    MPI_Gather(O[start_elem], elems_per_process, MPI_INT, O[start_elem], elems_per_process, MPI_INT, 0, MPI_COMM_WORLD);
 
     if(rank == 0){
         dump(I,N);
