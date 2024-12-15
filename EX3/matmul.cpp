@@ -11,7 +11,7 @@ using namespace std;
 #define max(A,B) ((A>B) ? A : B)
 
 //------------------------------------
-void numberGen (int N, int max, double *store)
+void numberGen (int N, int max, int *store)
 {
   int i;
   for (i = 0; i < N; i++)

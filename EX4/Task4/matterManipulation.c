@@ -32,14 +32,14 @@ void matrix_multiply(int A[N][M], int B[M][N], int C[N][N], int start_row, int e
 }
 
 void dump (int *x, int n, int m){
-        cout << "----------------------------------------" << endl;
+        printf("----------------------------------------\n");
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
-                cout << x[i][j] << " ";
-            cout << endl;
+                printf("%d ", x[i][j]);
+            printf("\n");
         }
-        cout << "----------------------------------------" << endl;
+        printf("----------------------------------------\n")
 }
 
 int main(int argc, char** argv) {
