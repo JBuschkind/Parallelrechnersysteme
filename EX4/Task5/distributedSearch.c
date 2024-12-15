@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
     int I[N], O[N];
 
     if(rank == 0){
-        initialize_array(N, 10, A);
+        initialize_array(N, 10, I);
     }
     
     for(int i = 0; i < N; i ++){
