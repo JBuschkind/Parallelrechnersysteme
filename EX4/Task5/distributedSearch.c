@@ -52,8 +52,8 @@ int main(int argc, char** argv) {
     }   
 
     int elems_per_process = N / size;  
-    int start_elem = rank * rows_per_process;
-    int end_elem = start_row + rows_per_process;
+    int start_elem = rank * elems_per_process;
+    int end_elem = start_elem + elems_per_process;
 
     if(rank == 0){
         //Sending the Message
