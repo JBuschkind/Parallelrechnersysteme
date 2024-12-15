@@ -8,11 +8,11 @@
 #define M 5  // Matrixgröße NxM
 
 //------------------------------------
-void initialize_matrices (int n, int m, int max, int **store)
+void initialize_matrices (int n, int m, int max, int *store)
 {
     for (int i = 0; i < n; i++){
         for(int j = 0; j < m; i++){
-            store[i][j] = rand () % max;
+            store[i * n + j] = rand () % max;
         }
     }
     
@@ -30,12 +30,12 @@ void matrix_multiply(int A[N][M], int B[M][N], int C[N][N], int start_row, int e
     }
 }
 
-void dump (int **x, int n, int m){
+void dump (int *x, int n, int m){
         printf("----------------------------------------\n");
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
-                printf("%d ", x[i][j]);
+                printf("%d ", x[i * n + j]);
             printf("\n");
         }
         printf("----------------------------------------\n");
@@ -59,8 +59,8 @@ int main(int argc, char** argv) {
     if (rank == 0) {
         srand (time (0));
         // Initialisiere Matrizen im Hauptprozess
-        initialize_matrices(N, M, 1000, (int**)A);
-        initialize_matrices(M, N, 1000, (int**)B);
+        initialize_matrices(N, M, 1000, A);
+        initialize_matrices(M, N, 1000, B);
     }
 
     MPI_Bcast(B, M * N, MPI_INT, 0, MPI_COMM_WORLD);
