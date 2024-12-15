@@ -32,7 +32,7 @@ void dump (int *x, int n){
 int main(int argc, char** argv) {
 
 
-    int target = 10;
+    int target = 5;
 
     MPI_Init(&argc, &argv); // MPI-Umgebung initialisieren
 
@@ -89,4 +89,5 @@ int main(int argc, char** argv) {
         dump(O,N);
     }
 
+    return 0;
 }
