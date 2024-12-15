@@ -54,8 +54,10 @@ int main(int argc, char** argv) {
 
     int A[N][M], B[M][N], C[N][N];
 
-    for(int i = 0; i < N * N; i++){
-        C[i] = 0;
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j ++){
+            C[i][j] = 0;
+        }       
     }
 
     int rows_per_process = N / size;  
