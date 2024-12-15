@@ -54,6 +54,8 @@ int main(int argc, char** argv) {
 
     int A[N][M], B[M][N], C[N][N];
 
+    memset(C[0], 0, N * N);
+
     int rows_per_process = N / size;  
 
     if (rank == 0) {
