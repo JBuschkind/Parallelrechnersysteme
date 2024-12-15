@@ -30,7 +30,7 @@ void matrix_multiply(int A[N][M], int B[M][N], int C[N][N], int start_row, int e
     }
 }
 
-void dump (int *x, int n, int m){
+void dump (int **x, int n, int m){
         printf("----------------------------------------\n");
         for (int i = 0; i < n; i++)
         {
@@ -59,8 +59,8 @@ int main(int argc, char** argv) {
     if (rank == 0) {
         srand (time (0));
         // Initialisiere Matrizen im Hauptprozess
-        initialize_matrices(N, M, 1000, A);
-        initialize_matrices(M, N, 1000, B);
+        initialize_matrices(N, M, 1000, (int**)A);
+        initialize_matrices(M, N, 1000, (int**)B);
     }
 
     MPI_Bcast(B, M * N, MPI_INT, 0, MPI_COMM_WORLD);
@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
 
     int start_row = rank * rows_per_process;
     int end_row = start_row + rows_per_process;
-    
+
     matrix_multiply(A, B, C, start_row, end_row);
 
     MPI_Gather(C[start_row], rows_per_process * M, MPI_INT, C, rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
