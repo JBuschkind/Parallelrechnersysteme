@@ -56,6 +56,7 @@ int main(int argc, char** argv) {
     int end_elem = start_elem + elems_per_process;
 
     if(rank == 0){
+        MPI_Status status;
         //Sending the Message
         for(int i = 1; i < size; i++){
             MPI_Send(I[rank * elems_per_process], elems_per_process, MPI_INT, i, 2, MPI_COMM_WORLD);
@@ -68,6 +69,7 @@ int main(int argc, char** argv) {
             MPI_Recv(O[rank * elems_per_process], elems_per_process, MPI_INT, i, 2, MPI_COMM_WORLD, &status);
         }
     }else{
+        MPI_Status status;
         MPI_Recv(I[rank * elems_per_process], elems_per_process, MPI_INT, 0, 2, MPI_COMM_WORLD, &status);
 
         search(I, O, target, start_elem, end_elem);
