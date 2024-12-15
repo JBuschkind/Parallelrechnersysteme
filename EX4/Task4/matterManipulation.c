@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
+using namespace std;
+
 #define N 5  // Matrixgröße NxM
 #define M 5  // Matrixgröße NxM
 
@@ -72,7 +74,7 @@ int main(int argc, char** argv) {
     if(rank == 0){
         dump(A, N, M);
         dump(B, M, N);
-        dumb(C, N, N);
+        dump(C, N, N);
     }
     
 
