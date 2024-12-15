@@ -6,7 +6,7 @@
 #define M 5  // Matrixgröße NxM
 
 //------------------------------------
-void initialize_matrices (int n, int m, int max, int *store)
+void initialize_matrices (int n, int m, int max, int **store)
 {
     for (int i = 0; i < n; i++){
         for(int j = 0; j < m; i++){
