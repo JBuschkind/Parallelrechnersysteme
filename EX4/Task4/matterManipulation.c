@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 
-using namespace std;
-
 #define N 5  // Matrixgröße NxM
 #define M 5  // Matrixgröße NxM
 
@@ -39,7 +37,7 @@ void dump (int *x, int n, int m){
                 printf("%d ", x[i][j]);
             printf("\n");
         }
-        printf("----------------------------------------\n")
+        printf("----------------------------------------\n");
 }
 
 int main(int argc, char** argv) {
@@ -53,7 +51,7 @@ int main(int argc, char** argv) {
     int size;
     MPI_Comm_size(MPI_COMM_WORLD, &size); // Anzahl der Prozesse
 
-    int A[][], B[][], C[][];
+    int A[N][M], B[M][N], C[N][N];
 
     rows_per_process = N / size;  
 
