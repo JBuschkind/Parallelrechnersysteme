@@ -35,7 +35,7 @@ void dump (int *x, int n, int m){
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
-                printf("%d ", x[i * n + j]);
+                printf("%d ", x[i * m + j]);
             printf("\n");
         }
         printf("----------------------------------------\n");
