@@ -88,6 +88,7 @@ int main(int argc, char** argv) {
         dump(I,N);
         dump(O,N);
     }
-
+    
+    MPI_Finalize();
     return 0;
 }
