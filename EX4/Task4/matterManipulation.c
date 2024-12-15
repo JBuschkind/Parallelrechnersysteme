@@ -64,16 +64,16 @@ int main(int argc, char** argv) {
     }
 
     MPI_Bcast(B, M * N, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Scatter(A, rows_per_process * M, MPI_INT, A[rank * rows_per_process], rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Scatter(A[rank * rows_per_process], rows_per_process * M, MPI_INT, A[rank * rows_per_process], rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
 
     int start_row = rank * rows_per_process;
     int end_row = start_row + rows_per_process;
 
 
-    printf(" %i %i %i", start_row, end_row, rows_per_process);
+    //printf(" %i %i %i", start_row, end_row, rows_per_process);
     matrix_multiply(A, B, C, start_row, end_row);
 
-    MPI_Gather(C[start_row], rows_per_process * M, MPI_INT, C, rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Gather(C[start_row], rows_per_process * M, MPI_INT, C[start_row], rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
 
     if(rank == 0){
         dump(A[0], N, M);
