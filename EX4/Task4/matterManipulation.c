@@ -66,4 +66,7 @@ int main(int argc, char** argv) {
         }
         cout << "----------------------------------------" << endl;
     }
+
+    MPI_Finalize();
+    return 0;
 }
