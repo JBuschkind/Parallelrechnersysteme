@@ -59,8 +59,8 @@ int main(int argc, char** argv) {
     if (rank == 0) {
         srand (time (0));
         // Initialisiere Matrizen im Hauptprozess
-        initialize_matrices(N, M, 1000, A);
-        initialize_matrices(M, N, 1000, B);
+        initialize_matrices(N, M, 1000, A[0]);
+        initialize_matrices(M, N, 1000, B[0]);
     }
 
     MPI_Bcast(B, M * N, MPI_INT, 0, MPI_COMM_WORLD);
@@ -74,9 +74,9 @@ int main(int argc, char** argv) {
     MPI_Gather(C[start_row], rows_per_process * M, MPI_INT, C, rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
 
     if(rank == 0){
-        dump(A, N, M);
-        dump(B, M, N);
-        dump(C, N, N);
+        dump(A[0], N, M);
+        dump(B[0], M, N);
+        dump(C[0], N, N);
     }
     
 
