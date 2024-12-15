@@ -1,4 +1,5 @@
 #include <mpi.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -42,7 +43,7 @@ void dump (int *x, int n, int m){
 int main(int argc, char** argv) {
 
 
-
+    
     MPI_Init(&argc, &argv); // MPI-Umgebung initialisieren
 
     int rank;
@@ -55,6 +56,7 @@ int main(int argc, char** argv) {
     rows_per_process = N / size;  
 
     if (rank == 0) {
+        srand (time (0));
         // Initialisiere Matrizen im Hauptprozess
         initialize_matrices(N, M, 1000, A);
         initialize_matrices(M, N, 1000, B);
