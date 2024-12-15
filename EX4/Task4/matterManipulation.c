@@ -11,8 +11,8 @@
 void initialize_matrices (int n, int m, int max, int *store)
 {
     for (int i = 0; i < n; i++){
-        for(int j = 0; j < m; i++){
-            store[i * n + j] = rand () % max;
+        for(int j = 0; j < m; j++){
+            store[i * m + j] = rand () % max;
         }
     }
     
