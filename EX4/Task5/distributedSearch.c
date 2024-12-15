@@ -14,7 +14,7 @@ void initialize_array (int n, int max, int *store)
     
 }
 
-void search(int I[N], int O[O], int target, int start_elem, int end_elem){
+void search(int I[N], int O[N], int target, int start_elem, int end_elem){
     for(int i = start_elem; i < end_elem; i++){
         if(I[i] == target){
             O[i] = 1;
