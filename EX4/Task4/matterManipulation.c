@@ -4,8 +4,8 @@
 #include <string.h>
 #include <time.h>
 
-#define N 2  // Matrixgröße NxM
-#define M 2  // Matrixgröße NxM
+#define N 3  // Matrixgröße NxM
+#define M 3  // Matrixgröße NxM
 
 //------------------------------------
 void initialize_matrices (int n, int m, int max, int *store)
