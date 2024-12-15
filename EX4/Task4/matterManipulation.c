@@ -21,7 +21,7 @@ void matrix_multiply(int A[N][M], int B[M][N], int C[N][N], int start_row, int e
     #pragma omp parallel for collapse(2)
     for (int i = start_row; i < end_row; i++) {
         for (int j = 0; j < N; j++) {
-            for (int k = 0; k < N; k++) {
+            for (int k = 0; k < M; k++) {
                 C[i][j] += A[i][k] * B[k][j];
             }
         }
