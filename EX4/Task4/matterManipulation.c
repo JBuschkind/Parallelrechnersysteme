@@ -6,11 +6,11 @@
 #define M 5  // Matrixgröße NxM
 
 //------------------------------------
-void initialize_matrices (int N, int M, int max, int *store)
+void initialize_matrices (int n, int m, int max, int *store)
 {
-    for (int i = 0; i < N; i++){
-        for(int n = 0; n < M; i++){
-            store[i][n] = rand () % max;
+    for (int i = 0; i < n; i++){
+        for(int j = 0; j < m; i++){
+            store[i][j] = rand () % max;
         }
     }
     
@@ -28,11 +28,11 @@ void matrix_multiply(int A[N][M], int B[M][N], int C[N][N], int start_row, int e
     }
 }
 
-void dump (int *x, int N, int M){
+void dump (int *x, int n, int m){
         cout << "----------------------------------------" << endl;
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < n; i++)
         {
-            for (int j = 0; j < M; j++)
+            for (int j = 0; j < m; j++)
                 cout << x[i][j] << " ";
             cout << endl;
         }
