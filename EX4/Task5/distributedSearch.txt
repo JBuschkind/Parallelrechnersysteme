@@ -1,0 +1,8 @@
+For the last Task, we first searched for a MPI-functionality to stop or interrupt the processes when the searched value would be found.
+We did not find any solution that seemed good enough for us to use. 
+Therefore, we decided to simply split the array and let each process search in it's own segment. We made a second array, which contains only '0's.
+We marked the indecies in this new array, if they contain the given value, with a '1'.
+
+Because of our approach for searching all occurrences of the given value in the array, there were no best or worse cases.
+
+As was the case is the previous Task, the Array Size has to be divisible by the Comm World Size, or unintended behaviour is expected. 
