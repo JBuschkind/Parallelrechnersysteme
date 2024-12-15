@@ -1,0 +1,10 @@
+For generating the Matrices, we took inspiration from the last Exercise (sheet 3) and fitted it to our requirements.
+We took into acount, that it should be possible to not just multiply sqare matrices.
+
+We use OpenMP to splitt matrix A into "task packages" for the processes to wich we broadcast matrix B and scatter matrix A.
+After multiplying, the results are gathered and result matrix C is put together.
+
+We used ChatGPT for some ideas and explanations of MPI Commnands, but coded everything by hand.
+
+One Problem in our Implementation is, that the Size N of Our Matrix C (NxN) has to be divisible by the Size of our MPI Comm World.
+If this is not the Case, the Matrix does not get split correctly, and unintended behaviour is observed.
