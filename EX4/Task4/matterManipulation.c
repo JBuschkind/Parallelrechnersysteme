@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define N 20  // Matrixgröße NxM
-#define M 20  // Matrixgröße NxM
+#define N 5  // Matrixgröße NxM
+#define M 5  // Matrixgröße NxM
 
 //------------------------------------
 void initialize_matrices (int N, int M, int max, int *store)
@@ -26,6 +26,17 @@ void matrix_multiply(int A[N][M], int B[M][N], int C[N][N], int start_row, int e
             }
         }
     }
+}
+
+void dump (int *x, int N, int M){
+        cout << "----------------------------------------" << endl;
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+                cout << x[i][j] << " ";
+            cout << endl;
+        }
+        cout << "----------------------------------------" << endl;
 }
 
 int main(int argc, char** argv) {
@@ -56,16 +67,12 @@ int main(int argc, char** argv) {
 
     MPI_Gather(C[start_row], rows_per_process * M, MPI_INT, C, rows_per_process * M, MPI_INT, 0, MPI_COMM_WORLD);
 
-    void dump (int *x, int N, int M){
-        cout << "----------------------------------------" << endl;
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < M; j++)
-                cout << x[i][j] << " ";
-            cout << endl;
-        }
-        cout << "----------------------------------------" << endl;
+    if(rank == 0){
+        dump(A, N, M);
+        dump(B, M, N);
+        dumb(C, N, N);
     }
+    
 
     MPI_Finalize();
     return 0;
