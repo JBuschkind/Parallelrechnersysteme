@@ -78,11 +78,11 @@ int main(int argc, char** argv) {
     }
     */
 
-    MPI_Scatter(I[rank * elems_per_process], elems_per_process, MPI_INT, I[rank * elems_per_process], elems_per_process, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Scatter(&I[rank * elems_per_process], elems_per_process, MPI_INT, &I[rank * elems_per_process], elems_per_process, MPI_INT, 0, MPI_COMM_WORLD);
 
     search(I, O, target, start_elem, end_elem);
-    
-    MPI_Gather(O[start_elem], elems_per_process, MPI_INT, O[start_elem], elems_per_process, MPI_INT, 0, MPI_COMM_WORLD);
+
+    MPI_Gather(&O[start_elem], elems_per_process, MPI_INT, &O[start_elem], elems_per_process, MPI_INT, 0, MPI_COMM_WORLD);
 
     if(rank == 0){
         dump(I,N);
